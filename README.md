@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FIR – Fill In Right Shoes
 
 Shoe shop website: customer storefront + admin panel + Node/Express backend + Firebase Auth.
@@ -49,3 +50,6 @@ fir-shoes/
 - Set `WHATSAPP_NUMBER` (or change it in Admin → Settings).
 - Uploaded photos live on the server disk; on Render/Railway/Netlify-style hosts disk is wiped, so switch uploads to Cloudinary or Firebase Storage.
 - Set `NODE_ENV=production` (disables dev-mode login).
+=======
+# FIR_UPPALA
+>>>>>>> b49519ce346268b4326dd7cb5c15e00699f876a5
