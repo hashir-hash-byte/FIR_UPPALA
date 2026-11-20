@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIR Admin</title>
+  <meta name="robots" content="noindex">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+  <!-- LOGIN -->
+  <section id="login" class="login">
+    <div class="login-card">
+      <div class="mark">FIR</div>
+      <h1>Admin sign in</h1>
+      <p class="mut" id="devNote" hidden>Firebase isn’t configured yet — running in <b>DEV MODE</b>.</p>
+      <form id="loginForm">
+        <input id="email" type="email" placeholder="Email" autocomplete="username" required>
+        <input id="password" type="password" placeholder="Password" autocomplete="current-password" required>
+        <button class="btn primary" type="submit">Sign in</button>
+      </form>
+      <button class="btn ghost" id="googleBtn">Continue with Google</button>
+      <button class="btn ghost" id="devBtn" hidden>Enter in DEV MODE</button>
+      <p class="err" id="loginErr"></p>
+      <a href="/" class="mut small">← Back to shop</a>
+    </div>
+  </section>
+
+  <!-- APP -->
+  <div id="app" hidden>
+    <header class="bar"><b class="serif">FIR <span>Admin</span></b>
+      <nav id="nav"><button data-v="products" class="on">Products</button><button data-v="orders">Orders <i id="newOrders" hidden></i></button><button data-v="settings">Settings</button></nav>
+      <div><a href="/" target="_blank">View shop ↗</a><button id="logout">Sign out</button></div></header>
+
+    <main>
+      <!-- Products -->
+      <section id="v-products">
+        <div class="head"><h2>Products <small id="pCount"></small></h2><button class="btn primary" id="newBtn">+ Add product</button></div>
+        <div class="table" id="pTable"></div>
+      </section>
+
+      <!-- Orders -->
+      <section id="v-orders" hidden><div class="head"><h2>Orders</h2></div><div id="oList"></div></section>
+
+      <!-- Settings -->
+      <section id="v-settings" hidden>
+        <div class="head"><h2>Shop settings</h2></div>
+        <form class="box" id="setForm">
+          <label>WhatsApp number (country code, digits only)<input id="sWa" placeholder="919876543210"></label>
+          <div id="sStores"></div>
+          <button type="button" class="btn ghost" id="addStore">+ Add store</button>
+          <button class="btn primary" type="submit">Save settings</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- product modal -->
+    <div id="modal" class="modal" hidden>
+      <form class="sheet" id="pForm">
+        <div class="head"><h2 id="mTitle">Add product</h2><button type="button" id="mClose" class="x">✕</button></div>
+        <label>Photos <small class="mut">(first photo is the cover)</small>
+          <div class="drop" id="drop"><input id="files" type="file" accept="image/*" multiple><span>📷 Tap to upload shoe photos</span></div></label>
+        <div class="thumbs" id="thumbs"></div>
+        <label>Name<input id="fName" required placeholder="Nike Air Force 1 Low (All White)"></label>
+        <div class="two"><label>Brand<input id="fBrand" list="brandList" required placeholder="Nike"><datalist id="brandList"><option>Nike<option>Adidas<option>Puma<option>New Balance<option>Reebok<option>Skechers</datalist></label>
+          <label>Category<select id="fCat"><option value="shoes">Shoes</option><option value="chappals">Chappals</option></select></label></div>
+        <div class="three"><label>MRP (₹)<input id="fMrp" type="number" min="0" required></label>
+          <label>Discount %<input id="fDisc" type="number" min="0" max="90" placeholder="0"></label>
+          <label>Selling price (₹)<input id="fPrice" type="number" min="0" required></label></div>
+        <p class="mut small" id="calc"></p>
+        <label>Sizes available (UK/India)</label>
+        <div class="sizes" id="fSizes"></div>
+        <div class="three"><label>Badge<select id="fBadge"><option value="">None</option><option>Bestseller</option><option>New</option><option>Sale</option><option>Sample</option></select></label>
+          <label>Rating<input id="fRating" type="number" step=".1" min="1" max="5" value="4.3"></label>
+          <label>Rating count<input id="fRc" type="number" min="0" value="0"></label></div>
+        <div class="checks"><label><input type="checkbox" id="fStock" checked> In stock</label><label><input type="checkbox" id="fFeat" checked> Show in home carousel</label></div>
+        <p class="err" id="mErr"></p>
+        <div class="foot"><button type="button" class="btn ghost" id="mCancel">Cancel</button><button class="btn primary" type="submit">Save product</button></div>
+      </form>
+    </div>
+  </div>
+  <div id="toast"></div>
+  <script src="/js/api.js"></script>
+  <script type="module" src="/js/admin.js"></script>
+</body>
+</html>

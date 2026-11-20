@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>FIR – Fill In Right Shoes</title>
+  <meta name="description" content="Sneakers, fitted right. Try on at Uppala or Kanhangad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div id="splash"><div class="splash-logo"><span>FILL IN RIGHT</span><b>FIR</b><span>SHOES</span></div><div class="splash-word" id="splashWord"></div></div>
+
+  <header class="top">
+    <div class="wrap top-row">
+      <a class="logo" href="#/" aria-label="FIR home"><span class="spark">✦</span><span class="logo-t">FIR<small>FILL IN RIGHT SHOES</small></span></a>
+      <form class="search" id="searchForm" autocomplete="off">
+        <input id="q" type="search" placeholder="Search shoes, chappals, brands">
+        <button aria-label="Search">🔍</button>
+      </form>
+      <button class="icon-btn" id="wishBtn" aria-label="Wishlist">♡<i class="badge" id="wishCount" hidden>0</i></button>
+      <button class="icon-btn" id="cartBtn" aria-label="Cart">🛒<i class="badge" id="cartCount" hidden>0</i></button>
+    </div>
+    <div class="wrap"><nav class="tabs" id="tabs">
+      <button data-cat="all" class="on">ALL</button><button data-cat="shoes">SHOES</button><button data-cat="chappals">CHAPPALS</button>
+    </nav></div>
+  </header>
+
+  <main id="shop">
+    <div class="wrap">
+      <section class="hero" id="hero">
+        <div class="hero-txt">
+          <span class="eyebrow">FIR · UPPALA · KANHANGAD</span>
+          <h1 id="heroTitle">Fill In Right.<br>Make an entrance.</h1>
+          <p id="heroSub"></p>
+          <a class="btn-white big" href="#list">Shop the collection →</a>
+        </div>
+        <div class="hero-vis">
+          <div class="cf-wrap">
+            <button class="cf-arrow l" id="heroPrev" aria-label="Previous">‹</button>
+            <div class="cf" id="heroCf"></div>
+            <button class="cf-arrow r" id="heroNext" aria-label="Next">›</button>
+          </div>
+          <div class="hint" id="heroHint">SWIPE TO EXPLORE · TAP A SHOE TO OPEN</div>
+          <div class="dots" id="heroDots"></div>
+        </div>
+      </section>
+
+      <section class="promo rv">
+        <div class="promo-logo"><span>FIR</span></div>
+        <div class="promo-t"><b>Fill In Right Shoes</b><p>Sneakers, fitted right. Try on at Uppala or Kanhangad.</p></div>
+        <a class="btn-white" href="#list">Shop now</a>
+      </section>
+
+      <div class="chips rv"><span class="chip"><b>Free try-on</b> in store</span><span class="chip"><b>Easy exchange</b> on size</span><span class="chip"><b>2 shops:</b> Uppala &amp; Kanhangad</span><span class="chip"><b>Order</b> on WhatsApp</span></div>
+
+      <h2 class="serif sec rv">Shop by brand</h2>
+      <div class="brands rv" id="brands"></div>
+
+      <section class="panel" id="list">
+        <div class="panel-h"><div><b id="listTitle">All items</b> <small id="listCount"></small></div>
+          <select id="sort"><option value="popular">Sort: Popular</option><option value="new">Sort: Newest</option><option value="plh">Price: Low to High</option><option value="phl">Price: High to Low</option><option value="disc">Discount</option></select></div>
+        <div class="filters"><select id="fBrand"><option value="">All Brands</option></select><input id="fMin" type="number" placeholder="Min price ₹"><input id="fMax" type="number" placeholder="Max price ₹"><button class="btn-red" id="fReset">Reset Filters</button></div>
+        <div class="grid" id="grid"></div>
+      </section>
+
+      <section class="stores" id="stores"></section>
+    </div>
+  </main>
+
+  <footer class="foot"><b class="serif">FIR – Fill In Right Shoes</b><p>Footwear &amp; Accessories · Call / WhatsApp: <span id="footPhone"></span></p><p>© 2026 FIR. All rights reserved.</p></footer>
+
+  <div id="pdp" class="pdp" hidden></div>
+
+  <div id="scrim" hidden></div>
+  <aside id="cart" class="drawer" hidden>
+    <div class="drawer-h"><b id="cartTitle">My Cart (0)</b><button id="cartClose" aria-label="Close">✕</button></div>
+    <div class="drawer-b" id="cartBody"></div>
+    <div class="drawer-f" id="cartFoot"></div>
+  </aside>
+
+  <!-- delivery details → WhatsApp -->
+  <div id="co" class="co" hidden>
+    <form class="co-card" id="coForm" novalidate>
+      <div class="co-h"><div><b>Delivery details</b><small>We’ll send these to the shop on WhatsApp</small></div><button type="button" id="coClose" aria-label="Close">✕</button></div>
+      <div class="co-body">
+        <div class="co-sum" id="coSum"></div>
+        <label>Full name *<input id="cName" autocomplete="name" placeholder="Your name"></label>
+        <label>Mobile number *<input id="cPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile" maxlength="13"></label>
+        <label>Address *<textarea id="cAddr" rows="2" autocomplete="street-address" placeholder="House / flat, street, area"></textarea></label>
+        <div class="two"><label>Landmark<input id="cLand" placeholder="Near…"></label><label>City / Town *<input id="cCity" autocomplete="address-level2" placeholder="Uppala"></label></div>
+        <div class="two"><label>Pincode *<input id="cPin" inputmode="numeric" maxlength="6" autocomplete="postal-code" placeholder="6 digits"></label><label>Note (optional)<input id="cNote" placeholder="Anything else?"></label></div>
+        <p class="co-err" id="coErr"></p>
+      </div>
+      <div class="co-f"><button class="btn-wa" id="coSend" type="submit">Send order on WhatsApp</button><small>Pay in store or confirm on WhatsApp. Your details are saved on this device for next time.</small></div>
+      <div class="co-done" id="coDone" hidden><div class="tick">✓</div><h3>Order ready!</h3><p>WhatsApp should open with your order and address. If it didn’t, tap below.</p><a class="btn-wa" id="coWa" target="_blank" rel="noopener">Open WhatsApp</a><button type="button" class="btn-out" id="coDoneClose">Continue shopping</button></div>
+    </form>
+  </div>
+  <div id="toast"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/shop.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "fir-shoes",
+  "version": "1.0.0",
+  "description": "FIR - Fill In Right Shoes: storefront + admin + backend",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon --watch server --ext js,json --ignore server/data server/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.1.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
